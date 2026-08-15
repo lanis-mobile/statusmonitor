@@ -1,0 +1,21 @@
+# Dart
+.dart_tool/
+.build/
+.packages
+
+# Node / Vue
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/blob-report/
+frontend/playwright/.cache/
+
+# Runtime
+*.db
+*.db-wal
+*.db-shm
+/data/
+.env
+.idea/
+.vscode/
