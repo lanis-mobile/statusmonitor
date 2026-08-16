@@ -57,7 +57,7 @@ Example `docker-compose.yml`:
 ```yaml
 services:
   statusmonitor:
-    image: ghcr.io/lanis-mobile/statusmonitor:latest
+    image: ghcr.io/lanis-mobile/statusmonitor:v1.0.0
     # or build locally: build: .
     ports:
       - "8080:8080"
@@ -80,4 +80,4 @@ LANIS_USERNAME=your-monitor-user
 LANIS_PASSWORD=your-monitor-password
 ```
 
-Images are published to `ghcr.io/lanis-mobile/statusmonitor`.
+Images are published to `ghcr.io/lanis-mobile/statusmonitor` when a GitHub release is created (tagged with the release name, e.g. `v1.0.0`).
