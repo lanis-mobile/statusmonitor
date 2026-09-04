@@ -55,6 +55,19 @@ test('status page shows incidents by default and chart in second tab', async ({
   await expect(page.getByTestId('holiday-hint')).toContainText(/schulferien/i);
   await expect(page.getByTestId('uptime-bar-24h')).toBeVisible();
   await expect(page.getByTestId('uptime-bar-1h')).toBeVisible();
+  await expect(page.getByTestId('uptime-bar-1h').getByTestId('uptime-cell')).toHaveCount(
+    60,
+  );
+  await page.getByTestId('uptime-bar-1h').getByTestId('uptime-cell').last().hover();
+  await expect(page.getByTestId('uptime-bar-1h').getByTestId('uptime-bar-tooltip')).toBeVisible();
+  await expect(page.getByTestId('uptime-bar-1h').getByTestId('uptime-bar-tooltip')).toContainText(
+    /ms|kein Wert|Keine Daten/,
+  );
+  await page.getByTestId('uptime-bar-24h').getByTestId('uptime-cell').last().hover();
+  await expect(page.getByTestId('uptime-bar-24h').getByTestId('uptime-bar-tooltip')).toBeVisible();
+  await expect(page.getByTestId('uptime-bar-24h').getByTestId('uptime-bar-tooltip')).toContainText(
+    /ms|kein Wert|Keine Daten|Erreichbar/,
+  );
   await expect(page.getByTestId('incident-list')).toContainText('30 Minuten');
   await expect(page.getByTestId('incident-list')).toContainText('3 Stunden');
   await expect(page.getByTestId('incident-list')).toContainText('Behoben');

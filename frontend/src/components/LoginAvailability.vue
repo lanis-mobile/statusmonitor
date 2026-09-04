@@ -35,7 +35,9 @@ const uptime24h = computed(() => props.summary.windows['24h'].uptime);
       </div>
       <UptimeBar
         :history="history1h"
-        :segments="30"
+        :segments="60"
+        :per-point="true"
+        :rounded="true"
         :up-color="loginUptimeColors.up"
         :down-color="loginUptimeColors.down"
         :no-data-color="loginUptimeColors.noData"
@@ -53,6 +55,7 @@ const uptime24h = computed(() => props.summary.windows['24h'].uptime);
       <UptimeBar
         :history="history24h"
         :segments="48"
+        :rounded="true"
         :up-color="loginUptimeColors.up"
         :down-color="loginUptimeColors.down"
         :no-data-color="loginUptimeColors.noData"

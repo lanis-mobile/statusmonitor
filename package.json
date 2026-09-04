@@ -1,0 +1,7 @@
+{
+  "name": "statusmonitor",
+  "private": true,
+  "scripts": {
+    "frontend:hosted-backend": "bun run --cwd frontend hosted-backend"
+  }
+}
