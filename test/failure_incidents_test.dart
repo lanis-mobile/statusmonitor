@@ -36,14 +36,41 @@ void main() {
     });
   });
 
-  group('failureIncidents span boundaries', () {
-    test('a single failed check until the next success is one minute', () {
+  group('failureIncidents single-point blips', () {
+    test('a single failed check is not an incident', () {
       db.insertChecks([_fail(1000), _ok(1060)]);
+      expect(db.failureIncidents(from: 0, to: 2000), isEmpty);
+    });
+
+    test('an unresolved single fail is not an incident', () {
+      db.insertChecks([_fail(1000)]);
+      expect(db.failureIncidents(from: 0, to: 2000), isEmpty);
+    });
+
+    test('a one-minute outage older than 24h is omitted', () {
+      const now = 1_788_264_000;
+      const old = now - 10 * 86400;
+      db.insertChecks([
+        _ok(old - 60),
+        _fail(old),
+        _ok(old + 60),
+        _ok(now),
+      ]);
+      expect(
+        db.failureIncidents(from: now - 30 * 86400, to: now),
+        isEmpty,
+      );
+    });
+  });
+
+  group('failureIncidents span boundaries', () {
+    test('two consecutive fails become a two-minute incident', () {
+      db.insertChecks([_fail(1000), _fail(1060), _ok(1120)]);
       final incidents = db.failureIncidents(from: 0, to: 2000);
       expect(incidents.length, 1);
       expect(incidents.single.start, 1000);
-      expect(incidents.single.end, 1060);
-      expect(incidents.single.end - incidents.single.start, 60);
+      expect(incidents.single.end, 1120);
+      expect(incidents.single.end - incidents.single.start, 120);
     });
 
     test('consecutive failures stay one span until the first success', () {
@@ -61,14 +88,25 @@ void main() {
     });
 
     test('leading successes are ignored', () {
-      db.insertChecks([_ok(1000), _ok(1060), _fail(1120), _ok(1180)]);
+      db.insertChecks([
+        _ok(1000),
+        _ok(1060),
+        _fail(1120),
+        _fail(1180),
+        _ok(1240),
+      ]);
       final incidents = db.failureIncidents(from: 0, to: 2000);
       expect(incidents.single.start, 1120);
-      expect(incidents.single.end, 1180);
+      expect(incidents.single.end, 1240);
     });
 
     test('trailing successes after recovery are ignored', () {
-      db.insertChecks([_fail(1000), _ok(1060), _ok(1120), _ok(1180)]);
+      db.insertChecks([
+        _fail(1000),
+        _fail(1060),
+        _ok(1120),
+        _ok(1180),
+      ]);
       expect(db.failureIncidents(from: 0, to: 2000).length, 1);
     });
 
@@ -79,16 +117,36 @@ void main() {
       expect(incidents.single.end, 1180);
     });
 
+    test('unresolved two fails are still emitted', () {
+      db.insertChecks([_fail(1000), _fail(1060)]);
+      final incidents = db.failureIncidents(from: 0, to: 2000);
+      expect(incidents.single.start, 1000);
+      expect(incidents.single.end, 1120);
+    });
+
     test('custom probe interval is used only for unresolved outages', () {
-      db.insertChecks([_fail(1000), _ok(1060), _fail(2000)]);
+      db.insertChecks([
+        _fail(1000),
+        _fail(1060),
+        _ok(1120),
+        _fail(2000),
+        _fail(2060),
+      ]);
       final incidents = db.failureIncidents(
         from: 0,
         to: 3000,
         probeIntervalSeconds: 300,
       );
-      expect(incidents[0].end, 1060);
+      expect(incidents[0].end, 1120);
       expect(incidents[1].start, 2000);
-      expect(incidents[1].end, 2300);
+      expect(incidents[1].end, 2360);
+    });
+
+    test('two sparse fails still count as an incident', () {
+      db.insertChecks([_fail(1000), _fail(4600), _ok(8200)]);
+      final incidents = db.failureIncidents(from: 0, to: 9000);
+      expect(incidents.single.start, 1000);
+      expect(incidents.single.end, 8200);
     });
   });
 
@@ -96,7 +154,8 @@ void main() {
     test('a successful check between failures splits spans', () {
       db.insertChecks([
         _fail(1000),
-        _ok(1060),
+        _fail(1060),
+        _ok(1120),
         _fail(1240),
         _fail(1300),
         _fail(1360),
@@ -105,12 +164,12 @@ void main() {
       final incidents = db.failureIncidents(from: 0, to: 2000);
       expect(incidents.length, 2);
       expect(incidents[0].start, 1000);
-      expect(incidents[0].end, 1060);
+      expect(incidents[0].end, 1120);
       expect(incidents[1].start, 1240);
       expect(incidents[1].end, 1420);
     });
 
-    test('production 15:26 and 15:31 outages stay separate', () {
+    test('a 1-minute blip next to a longer outage is dropped', () {
       db.insertChecks([
         _fail(1_788_182_760, code: CheckCode.http, ms: 530),
         _ok(1_788_182_820),
@@ -126,23 +185,10 @@ void main() {
       ]);
 
       final incidents = db.failureIncidents(from: 0, to: 2_000_000_000);
-      expect(incidents.length, 3);
-      expect(incidents[0].end - incidents[0].start, 60);
-      expect(incidents[1].end - incidents[1].start, 360);
-      expect(incidents[2].end - incidents[2].start, 60);
-    });
-
-    test('a one-minute outage older than 24h is still 60 seconds', () {
-      const now = 1_788_264_000;
-      const old = now - 10 * 86400;
-      db.insertChecks([
-        _ok(old - 60),
-        _fail(old),
-        _ok(old + 60),
-        _ok(now),
-      ]);
-      final incidents = db.failureIncidents(from: now - 30 * 86400, to: now);
-      expect(incidents.single.end - incidents.single.start, 60);
+      expect(incidents.length, 1);
+      expect(incidents.single.start, 1_788_183_060);
+      expect(incidents.single.end, 1_788_183_420);
+      expect(incidents.single.end - incidents.single.start, 360);
     });
   });
 
@@ -150,13 +196,17 @@ void main() {
     test('timeout, http, auth, and error all count as down', () {
       db.insertChecks([
         _fail(1000, code: CheckCode.timeout),
-        _ok(1060),
+        _fail(1060, code: CheckCode.timeout),
+        _ok(1120),
         _fail(2000, code: CheckCode.http),
-        _ok(2060),
+        _fail(2060, code: CheckCode.http),
+        _ok(2120),
         _fail(3000, code: CheckCode.auth),
-        _ok(3060),
+        _fail(3060, code: CheckCode.auth),
+        _ok(3120),
         _fail(4000, code: CheckCode.error),
-        _ok(4060),
+        _fail(4060, code: CheckCode.error),
+        _ok(4120),
       ]);
       final incidents = db.failureIncidents(from: 0, to: 5000);
       expect(incidents.map((i) => i.start), [1000, 2000, 3000, 4000]);
@@ -175,28 +225,42 @@ void main() {
 
   group('failureIncidents range clipping', () {
     test('excludes outages entirely before from', () {
-      db.insertChecks([_fail(1000), _ok(1060), _fail(5000), _ok(5060)]);
+      db.insertChecks([
+        _fail(1000),
+        _fail(1060),
+        _ok(1120),
+        _fail(5000),
+        _fail(5060),
+        _ok(5120),
+      ]);
       final incidents = db.failureIncidents(from: 4000, to: 6000);
       expect(incidents.length, 1);
       expect(incidents.single.start, 5000);
     });
 
     test('excludes outages entirely after to', () {
-      db.insertChecks([_fail(1000), _ok(1060), _fail(5000), _ok(5060)]);
+      db.insertChecks([
+        _fail(1000),
+        _fail(1060),
+        _ok(1120),
+        _fail(5000),
+        _fail(5060),
+        _ok(5120),
+      ]);
       final incidents = db.failureIncidents(from: 0, to: 2000);
       expect(incidents.length, 1);
       expect(incidents.single.start, 1000);
     });
 
     test('includes a failure exactly at from', () {
-      db.insertChecks([_fail(1000), _ok(1060)]);
+      db.insertChecks([_fail(1000), _fail(1060), _ok(1120)]);
       expect(db.failureIncidents(from: 1000, to: 2000).single.start, 1000);
     });
 
     test('includes a failure exactly at to', () {
-      db.insertChecks([_ok(1000), _fail(2000)]);
+      db.insertChecks([_ok(1000), _fail(1940), _fail(2000)]);
       final incidents = db.failureIncidents(from: 0, to: 2000);
-      expect(incidents.single.start, 2000);
+      expect(incidents.single.start, 1940);
       expect(incidents.single.end, 2060);
     });
 
@@ -207,6 +271,11 @@ void main() {
       expect(incidents.single.end, 1180);
     });
 
+    test('a window that clips to a single in-range fail is omitted', () {
+      db.insertChecks([_fail(1000), _fail(1060), _fail(1120), _ok(1180)]);
+      expect(db.failureIncidents(from: 1120, to: 2000), isEmpty);
+    });
+
     test('an outage whose recovery is after to is treated as unresolved', () {
       db.insertChecks([_fail(1000), _fail(1060), _ok(2000)]);
       final incidents = db.failureIncidents(from: 0, to: 1500);
@@ -215,8 +284,8 @@ void main() {
     });
 
     test('a recovered outage that ends exactly at to is closed at that success', () {
-      db.insertChecks([_fail(1000), _ok(1060)]);
-      expect(db.failureIncidents(from: 0, to: 1060).single.end, 1060);
+      db.insertChecks([_fail(1000), _fail(1060), _ok(1120)]);
+      expect(db.failureIncidents(from: 0, to: 1120).single.end, 1120);
     });
   });
 
@@ -224,11 +293,14 @@ void main() {
     test('returns spans in chronological order', () {
       db.insertChecks([
         _fail(3000),
-        _ok(3060),
+        _fail(3060),
+        _ok(3120),
         _fail(1000),
-        _ok(1060),
+        _fail(1060),
+        _ok(1120),
         _fail(2000),
-        _ok(2060),
+        _fail(2060),
+        _ok(2120),
       ]);
       expect(
         db.failureIncidents(from: 0, to: 4000).map((i) => i.start),

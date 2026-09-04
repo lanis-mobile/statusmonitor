@@ -87,6 +87,7 @@ class StatusDatabase {
   }
 
   /// Contiguous failure spans from first failed check until the next success.
+  /// Isolated single-probe blips are omitted; a span needs two or more fails.
   List<IncidentSpan> failureIncidents({
     required int from,
     required int to,
@@ -100,8 +101,10 @@ class StatusDatabase {
     int? lastFailureTs;
 
     void closeIncident(int end) {
-      if (start == null) return;
-      incidents.add(IncidentSpan(start: start!, end: end));
+      if (start == null || lastFailureTs == null) return;
+      if (lastFailureTs! > start!) {
+        incidents.add(IncidentSpan(start: start!, end: end));
+      }
       start = null;
       lastFailureTs = null;
     }

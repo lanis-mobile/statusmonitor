@@ -75,7 +75,7 @@ Uptime is `100 * (checks - failures) / checks` over raw samples in that window.
 
 ### `GET /api/incidents`
 
-Measured failure spans for the last 30 days, derived from individual probe results (not chart buckets). Each span runs from the first failed check until the next successful check.
+Measured failure spans for the last 30 days, derived from individual probe results (not chart buckets). Each span runs from the first failed check until the next successful check. Isolated single-probe failures are omitted; a span is listed only when at least two consecutive checks failed.
 
 ```json
 {
