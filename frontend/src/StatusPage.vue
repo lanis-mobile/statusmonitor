@@ -19,7 +19,7 @@ const props = defineProps<{
   summary: SummaryPayload;
   history: HistoryPayload;
   history24h: HistoryPayload;
-  history30d: HistoryPayload;
+  incidents: Array<{ start: number; end: number }>;
   holidays: HolidayPeriod[];
   range: HistoryWindow;
   windows: HistoryWindow[];
@@ -150,8 +150,7 @@ function focusIncident(range: { start: number; end: number }) {
 
         <div v-if="tab === 'incidents'">
           <IncidentList
-            :recent="history24h"
-            :longer="history30d"
+            :incidents="incidents"
             :status="summary.current.status"
             :now="summary.current.checkedAt ?? history24h.to"
             @select="focusIncident"

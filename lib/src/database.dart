@@ -86,6 +86,41 @@ class StatusDatabase {
     return [for (final row in rows) _checkFromRow(row)];
   }
 
+  /// Contiguous failure spans from first failed check until the next success.
+  List<IncidentSpan> failureIncidents({
+    required int from,
+    required int to,
+    int probeIntervalSeconds = 60,
+  }) {
+    final checks = checksInRange(from, to);
+    if (checks.isEmpty) return [];
+
+    final incidents = <IncidentSpan>[];
+    int? start;
+    int? lastFailureTs;
+
+    void closeIncident(int end) {
+      if (start == null) return;
+      incidents.add(IncidentSpan(start: start!, end: end));
+      start = null;
+      lastFailureTs = null;
+    }
+
+    for (final check in checks) {
+      if (check.ok == 0) {
+        start ??= check.ts;
+        lastFailureTs = check.ts;
+      } else if (start != null) {
+        closeIncident(check.ts);
+      }
+    }
+
+    if (start != null) {
+      closeIncident(lastFailureTs! + probeIntervalSeconds);
+    }
+    return incidents;
+  }
+
   WindowStats statsInRange(int from, int to) {
     final row = _db
         .select(

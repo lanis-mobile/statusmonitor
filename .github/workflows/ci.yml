@@ -32,6 +32,7 @@ jobs:
         working-directory: frontend
         run: |
           npm ci
+          npm run test
           npm run build
 
       - name: Install Playwright

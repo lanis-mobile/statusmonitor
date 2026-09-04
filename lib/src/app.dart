@@ -22,6 +22,7 @@ class StatusApp {
     final router = Router()
       ..get('/api/status', _status)
       ..get('/api/summary', _summary)
+      ..get('/api/incidents', _incidents)
       ..get('/api/history/<window>', _history)
       ..get('/api/holidays', _holidays);
 
@@ -102,6 +103,18 @@ class StatusApp {
       windows[id] = db.statsInRange(now - duration, now).toJson();
     }
     return _json({'current': _statusPayload(), 'windows': windows});
+  }
+
+  Response _incidents(Request request) {
+    final now = clock.nowSeconds;
+    final duration = HistoryWindows.durationOf('30d')!;
+    final from = now - duration;
+    final spans = db.failureIncidents(from: from, to: now);
+    return _json({
+      'from': from,
+      'to': now,
+      'incidents': [for (final span in spans) span.toJson()],
+    });
   }
 
   Response _history(Request request, String window) {

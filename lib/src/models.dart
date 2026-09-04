@@ -89,6 +89,15 @@ class HistoryPoint {
   List<Object?> toJson() => [ts, ms, ok];
 }
 
+class IncidentSpan {
+  const IncidentSpan({required this.start, required this.end});
+
+  final int start;
+  final int end;
+
+  Map<String, Object?> toJson() => {'start': start, 'end': end};
+}
+
 abstract final class HistoryWindows {
   static const ids = ['24h', '7d', '30d', '90d', '180d', '1y', '2y'];
 

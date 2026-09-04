@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { buildIncidents } from '../lib/incidents';
+import { mapIncidents } from '../lib/incidents';
 import { formatCheckedAt, formatDuration, statusTitle } from '../lib/statusCopy';
-import type { HistoryPayload, MonitorStatus } from '../types';
+import type { MonitorStatus } from '../types';
 
 const props = defineProps<{
-  recent: HistoryPayload;
-  longer: HistoryPayload;
+  incidents: Array<{ start: number; end: number }>;
   status: MonitorStatus;
   now: number;
 }>();
@@ -15,19 +14,19 @@ const emit = defineEmits<{
   select: [range: { start: number; end: number }];
 }>();
 
-const incidents = computed(() =>
-  buildIncidents(props.recent, props.longer, props.status, props.now),
+const items = computed(() =>
+  mapIncidents(props.incidents, props.status, props.now),
 );
 </script>
 
 <template>
   <div data-testid="incident-list">
-    <p v-if="incidents.length === 0" class="px-4 py-6 text-sm text-[#6b7280]">
+    <p v-if="items.length === 0" class="px-4 py-6 text-sm text-[#6b7280]">
       Keine Störungen in den letzten 30 Tagen.
     </p>
     <ol v-else class="divide-y divide-[#d0d7de]">
       <li
-        v-for="item in incidents"
+        v-for="item in items"
         :key="`${item.start}-${item.end}`"
         class="flex gap-3 px-4 py-3"
         :data-ongoing="item.ongoing ? 'true' : 'false'"

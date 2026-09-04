@@ -73,6 +73,21 @@ Current status plus uptime for fixed windows.
 
 Uptime is `100 * (checks - failures) / checks` over raw samples in that window.
 
+### `GET /api/incidents`
+
+Measured failure spans for the last 30 days, derived from individual probe results (not chart buckets). Each span runs from the first failed check until the next successful check.
+
+```json
+{
+  "from": 1781524800,
+  "to": 1784116800,
+  "incidents": [
+    { "start": 1784111400, "end": 1784113200 },
+    { "start": 1782900000, "end": 1782910800 }
+  ]
+}
+```
+
 ### `GET /api/history/{24h|7d|30d|90d|180d|1y|2y}`
 
 Fixed paths so Cloudflare cache keys stay stable. Unknown windows return `404`.

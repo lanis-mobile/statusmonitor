@@ -43,3 +43,9 @@ export interface HolidaysPayload {
   updatedAt: number | null;
   periods: HolidayPeriod[];
 }
+
+export interface IncidentsPayload {
+  from: number;
+  to: number;
+  incidents: Array<{ start: number; end: number }>;
+}

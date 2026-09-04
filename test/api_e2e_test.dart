@@ -137,6 +137,45 @@ void main() {
     );
   });
 
+  test('/api/incidents lists measured failure spans', () async {
+    final response = await get('/api/incidents');
+    expect(response.statusCode, 200);
+    expectCacheHeaders(response);
+    final body = await jsonBody(response);
+    final from = fixtures.now - HistoryWindows.durationOf('30d')!;
+    expect(body['from'], from);
+    expect(body['to'], fixtures.now);
+
+    final incidents = (body['incidents'] as List<dynamic>)
+        .cast<Map<String, dynamic>>();
+    expect(incidents.length, 2);
+    expect(incidents.map((i) => i.keys.toSet()), everyElement({'start', 'end'}));
+
+    final older = incidents[0];
+    final recent = incidents[1];
+    expect(older['start'], 1782896400);
+    expect(older['end'], 1782907200);
+    expect((older['end'] as int) - (older['start'] as int), 3 * 3600);
+    expect(recent['start'], 1784107800);
+    expect(recent['end'], 1784109600);
+    expect((recent['end'] as int) - (recent['start'] as int), 30 * 60);
+    expect(older['start'], lessThan(recent['start']));
+  });
+
+  test('/api/incidents uses raw checks not chart buckets', () async {
+    final history30d = await jsonBody(await get('/api/history/30d'));
+    final bucket = history30d['bucketSeconds'] as int;
+    expect(bucket, 3600);
+
+    final body = await jsonBody(await get('/api/incidents'));
+    final incidents = (body['incidents'] as List<dynamic>)
+        .cast<Map<String, dynamic>>();
+    final recentDuration =
+        (incidents.last['end'] as int) - (incidents.last['start'] as int);
+    expect(recentDuration, 1800);
+    expect(recentDuration, isNot(bucket));
+  });
+
   test('unknown history window is 404', () async {
     final response = await get('/api/history/1h');
     expect(response.statusCode, 404);

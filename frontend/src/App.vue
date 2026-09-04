@@ -9,13 +9,14 @@ import type {
   HistoryWindow,
   HolidayPeriod,
   HolidaysPayload,
+  IncidentsPayload,
   SummaryPayload,
 } from './types';
 
 const summary = ref<SummaryPayload | null>(null);
 const history = ref<HistoryPayload | null>(null);
 const history24h = ref<HistoryPayload | null>(null);
-const history30d = ref<HistoryPayload | null>(null);
+const incidents = ref<IncidentsPayload | null>(null);
 const holidays = ref<HolidaysPayload | null>(null);
 const range = ref<HistoryWindow>('24h');
 const error = ref<string | null>(null);
@@ -30,27 +31,26 @@ const visibleHolidays = computed<HolidayPeriod[]>(() => {
 
 async function load(next: HistoryWindow = range.value) {
   error.value = null;
-  const [summaryData, historyData, holidayData, dayHistory, monthHistory] =
+  const [summaryData, historyData, holidayData, dayHistory, incidentsData] =
     await Promise.all([
       api.summary(),
       api.history(next),
       api.holidays(),
       next === '24h' ? Promise.resolve(null) : api.history('24h'),
-      next === '30d' ? Promise.resolve(null) : api.history('30d'),
+      api.incidents(),
     ]);
   let nextSummary = summaryData;
   let nextHistory = historyData;
   let next24h = next === '24h' ? historyData : dayHistory;
-  let next30d = next === '30d' ? historyData : monthHistory;
-  if (isDownDemo() && next24h && next30d) {
-    const demo = applyDownDemo(nextSummary, [nextHistory, next24h, next30d]);
+  if (isDownDemo() && next24h) {
+    const demo = applyDownDemo(nextSummary, [nextHistory, next24h]);
     nextSummary = demo.summary;
-    [nextHistory, next24h, next30d] = demo.histories;
+    [nextHistory, next24h] = demo.histories;
   }
   summary.value = nextSummary;
   history.value = nextHistory;
   history24h.value = next24h;
-  history30d.value = next30d;
+  incidents.value = incidentsData;
   holidays.value = holidayData;
   range.value = next;
 }
@@ -70,11 +70,11 @@ onMounted(async () => {
   <p v-if="loading" class="p-6 text-sm text-neutral-500">Lade Status…</p>
   <p v-else-if="error" class="p-6 text-sm text-red-600">{{ error }}</p>
   <StatusPage
-    v-else-if="summary && history && history24h && history30d"
+    v-else-if="summary && history && history24h && incidents"
     :summary="summary"
     :history="history"
     :history24h="history24h"
-    :history30d="history30d"
+    :incidents="incidents.incidents"
     :holidays="visibleHolidays"
     :range="range"
     :windows="windows"
