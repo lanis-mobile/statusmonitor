@@ -23,7 +23,7 @@ async function expectChartRendered(page: import('@playwright/test').Page) {
     .poll(async () => canvas.first().evaluate((node) => (node as HTMLCanvasElement).width))
     .toBeGreaterThan(100);
 
-  const ink = await canvas.first().evaluate((node) => {
+  await expect.poll(() => canvas.first().evaluate((node) => {
     const c = node as HTMLCanvasElement;
     const ctx = c.getContext('2d');
     if (!ctx || c.width < 10 || c.height < 10) return 0;
@@ -40,14 +40,14 @@ async function expectChartRendered(page: import('@playwright/test').Page) {
       if (!nearWhite && !nearBlack) colored += 1;
     }
     return colored;
-  });
-  expect(ink).toBeGreaterThan(40);
+  })).toBeGreaterThan(40);
 }
 
-test('status page shows incidents by default and chart in second tab', async ({
+test('login monitoring shows incidents and charts', async ({
   page,
 }) => {
   await page.goto('/');
+  await page.getByTestId('tab-incidents').click();
 
   await expect(page.getByTestId('status-banner')).toContainText(
     'Schulportal Erreichbar',
@@ -55,6 +55,10 @@ test('status page shows incidents by default and chart in second tab', async ({
   await expect(page.getByTestId('holiday-hint')).toContainText(/schulferien/i);
   await expect(page.getByTestId('uptime-bar-24h')).toBeVisible();
   await expect(page.getByTestId('uptime-bar-1h')).toBeVisible();
+  await expect(page.getByText('Letzte 30 Tage', { exact: true })).toBeVisible();
+  await expect(page.getByTestId('uptime-bar-30d').getByTestId('uptime-cell')).toHaveCount(30);
+  await page.getByTestId('uptime-bar-30d').getByTestId('uptime-cell').last().hover();
+  await expect(page.getByTestId('uptime-bar-30d').getByRole('tooltip')).toContainText(/ms|kein Wert|Keine Daten/);
   await expect(page.getByTestId('uptime-bar-1h').getByTestId('uptime-cell')).toHaveCount(
     60,
   );
@@ -86,5 +90,6 @@ test('status page shows incidents by default and chart in second tab', async ({
   for (const id of ranges) {
     await page.getByTestId(`range-${id}`).click();
     await expectChartRendered(page);
+    await expect(page.getByTestId('uptime-bar-30d').getByTestId('uptime-cell')).toHaveCount(30);
   }
 });

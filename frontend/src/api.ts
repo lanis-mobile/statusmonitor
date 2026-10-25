@@ -1,4 +1,5 @@
 import type {
+  OfficialPayload,
   HistoryPayload,
   HistoryWindow,
   HolidaysPayload,
@@ -8,7 +9,7 @@ import type {
 } from './types';
 
 async function getJson<T>(path: string): Promise<T> {
-  const response = await fetch(path);
+  const response = await fetch(path, { signal: AbortSignal.timeout(15_000) });
   if (!response.ok) {
     throw new Error(`${path} failed: ${response.status}`);
   }
@@ -16,6 +17,7 @@ async function getJson<T>(path: string): Promise<T> {
 }
 
 export const api = {
+  official: () => getJson<OfficialPayload>('/api/official'),
   status: () => getJson<StatusPayload>('/api/status'),
   summary: () => getJson<SummaryPayload>('/api/summary'),
   incidents: () => getJson<IncidentsPayload>('/api/incidents'),

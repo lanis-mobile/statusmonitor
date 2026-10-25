@@ -1,0 +1,2356 @@
+{
+  "retrievedOn": "2026-10-25",
+  "indexUrl": "https://web.archive.org/cdx/search/cdx?url=info.schulportal.hessen.de%2Fstatus-des-schulportal-hessen%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&fl=timestamp%2Coriginal%2Cdigest&limit=500",
+  "snapshots": [
+    {
+      "timestamp": "20230330025034",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230330025034id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "JAOIG2ZLQUUPRZN7MM63PU5LULXWL3EN",
+      "retrievedBodySha256": "24d938f4c3304a8c1a7b2bcb711948b3fb24bcbb8110e382d0dc661a3b36137a",
+      "fixture": "20230330025034.html",
+      "fixtureSha256": "929b35dfbc9cca33c52464e502e20710511b459ac9b8a61100506bced22dc648",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230331231204",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230331231204id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "IC7ULEWSBZHX2WAO7YISKNE2XYWO2576",
+      "retrievedBodySha256": "1120bbce1454946c9b7132b4a3d5de6bb69847342583b7fd2b07e810d5183cc2",
+      "fixture": "20230331231204.html",
+      "fixtureSha256": "eef2b2a062eac8a099e607bc1f6afbf0f6ad99020bc39209460fd4391cbab036",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230402082320",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230402082320id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "TXJSFTYXYMTKPYWXAZYKOKNRMOX6U47E",
+      "retrievedBodySha256": "a3bebec4ae1ef97094fab2c8c55a093f95d43de191c4634ec1ca485292b70fe4",
+      "fixture": "20230402082320.html",
+      "fixtureSha256": "eef2b2a062eac8a099e607bc1f6afbf0f6ad99020bc39209460fd4391cbab036",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230507004827",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230507004827id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "MRDNRO4V6R5KEG37I735WMHU7FXZSVD6",
+      "retrievedBodySha256": "a318e91221cc034433f74618928305ff272f697e550b35169bbdb2f31ddf19dc",
+      "fixture": "20230507004827.html",
+      "fixtureSha256": "f266db47f2f1885677e10a38b3cda9b422ae6cdd18882673f279c02ee5ab0a80",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230601152927",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230601152927id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "SHOFADBJTPIY6G2OVEQ2NAZPDRCGDEGT",
+      "retrievedBodySha256": "2f0fd06329429e1f3f5566a112d4cd79bf39bdc616ade6b37d882288fbcdaf69",
+      "fixture": "20230601152927.html",
+      "fixtureSha256": "d943ce90448217db4802e0bc8db7733c5142a0120d10d42d2f94ba5fa7308e4b",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230702095243",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230702095243id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "E5GSCD7EXF6M4T5QAVU7RK2V2BVY7GOO",
+      "retrievedBodySha256": "cf6ba473df442aa3610d46be49c0cf85c0fbd778933c075bb3809d313503fa32",
+      "fixture": "20230702095243.html",
+      "fixtureSha256": "c5303b3f347ba8fd64d0343401666710b0a784e050ee932c29caa77676edbed8",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        }
+      ]
+    },
+    {
+      "timestamp": "20230923142624",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230923142624id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "ZYC4XJXZOPJPXQD42JVISYB6VSBRBIKK",
+      "retrievedBodySha256": "cf1be71f5eb93bee128ff33797625a9b93cd1667828155065c8c8472d5e7bf41",
+      "fixture": "20230923142624.html",
+      "fixtureSha256": "4f66f1d89c8fb82e306dac2eeb64bb1f18cac95f07fa02b5b6294dbbb1dce540",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20230930003642",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20230930003642id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "FHNKWNGJVTK6X6YMUUNBVDY6LMZFVSSL",
+      "retrievedBodySha256": "3ea4befcc92320181d48cfae5627a84d535ceb80134683296d72cf8cb448d3e7",
+      "fixture": "20230930003642.html",
+      "fixtureSha256": "4f66f1d89c8fb82e306dac2eeb64bb1f18cac95f07fa02b5b6294dbbb1dce540",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20231029065110",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20231029065110id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "GUDHGEYSFHJETZPUFRHFWXRBOFZQNUWV",
+      "retrievedBodySha256": "d6b68d7c65375563101fe324e772adf134f5a9fafbfc6e75a1ab904d42efe882",
+      "fixture": "20231029065110.html",
+      "fixtureSha256": "5e1296771cecd91cbccf087178789ff5dfd1a2b58dd6324344c695040638a4a0",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20231106133607",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20231106133607id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "S7MZHSK5SMNPRQEWVP4AG5O5Q6U3VVTJ",
+      "retrievedBodySha256": "fbe206cd89e54227f0140cc558cb832559a68df3bb548926494d7b0702aeb019",
+      "fixture": "20231106133607.html",
+      "fixtureSha256": "e0c00481d6c1ab4fd7769e2a342c26b3e42b673254392f1cea7b8f583440b240",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20231209052349",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20231209052349id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "ZLPA2BSDQ4HKYKJZG7PFHMDR4G3LEL3W",
+      "retrievedBodySha256": "8476a7f14f917b6d901e9046944649bf0905c599445c67231ebf59134a40e32d",
+      "fixture": "20231209052349.html",
+      "fixtureSha256": "724eb355e8274808ff5a99714f0a88b6af2bcfb553df267d07428efed6f49aa0",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240103065341",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240103065341id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "YRZKNYLZ73QVQ7LFHW62D6WVXB2LBPCQ",
+      "retrievedBodySha256": "843fb4287396ed1e4927558b189caab70c018f3a62c0cfa273229787d27974a4",
+      "fixture": "20240103065341.html",
+      "fixtureSha256": "747a3af3f4a0e2df38606f5718b1dee05cc7a29111be33c3ab97426668f6956d",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240229083602",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240229083602id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "PFFMKRSOWGDPUCSP64N6HNNACAN3JMTW",
+      "retrievedBodySha256": "c36e0c8863ea8fa7955aed7331838c8b1559449c1163adbe592d7ce3deaca06d",
+      "fixture": "20240229083602.html",
+      "fixtureSha256": "dffa65d25de0c34c4aac96339211f1037bfcd52b6c3f936f288537760597a105",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240419182319",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240419182319id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "5MMYF7EI7YCRQTTMMQYU563STED6I2KB",
+      "retrievedBodySha256": "0b8ad5c4e1d81f481e4a8bb3904afd056dc5456d9fa7cfd1d2ea3cf9a6cdc2b0",
+      "fixture": "20240419182319.html",
+      "fixtureSha256": "cf1bd7e63d97144cf542404130161b6483388f18fce59085a1352d9afbeadbbf",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240501012923",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240501012923id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "P65WPCFYA4MXXO6JVTO3GFT3QJ6HPA7J",
+      "retrievedBodySha256": "b81e5464772b34ff8ed2d2ebf05f58d68cc1379c7fda67935a0af533ecb28af5",
+      "fixture": "20240501012923.html",
+      "fixtureSha256": "e5bbe92d3e5ff18c49448c12acaa9550a7764bdb1c57f4fd2d5e31de757cf90f",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240503105602",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240503105602id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "M7X5SH27EQHRGBB4XRXVQTFWZTJQWVMX",
+      "retrievedBodySha256": "6beccc30e194375abe3d3b4b84e8ecacbdf8c2a111a6d9314ab6b929d7680ab2",
+      "fixture": "20240503105602.html",
+      "fixtureSha256": "e5bbe92d3e5ff18c49448c12acaa9550a7764bdb1c57f4fd2d5e31de757cf90f",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240604011918",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240604011918id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "BXWW4RSI2D52ASSRUBIBBJ5AQZYO7N3Y",
+      "retrievedBodySha256": "62790b46459efe275270b709bd4023b1bbe268ef89a613dcd90ad61cad274faf",
+      "fixture": "20240604011918.html",
+      "fixtureSha256": "1b37e280697b275781ff4c98869ca3d01419671259ea43c63ee3001003b34091",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240624204637",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240624204637id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "KF63SGSKHX2GT4KKQ47P66Q6ELVMSXJF",
+      "retrievedBodySha256": "9b110f6814c8550a553601e412e65abd34d7099760247b08fce137e31816c7f0",
+      "fixture": "20240624204637.html",
+      "fixtureSha256": "2ccef8c0cbd9addce45e30547563ed1a38c87a98ea90d07a09886b336161bc44",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240703064805",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240703064805id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "HLBDAZXHXSCPCXBWCSVFVGXANGD5PYJC",
+      "retrievedBodySha256": "095cdf4b0099dbe5899d14a845984e0d1da03ecccd2eca2e84922e0836b9eeb0",
+      "fixture": "20240703064805.html",
+      "fixtureSha256": "fe2b722f49e84067c6e3bde2349ae8298b86f54e6593e87c86649abbcff57b38",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240819225822",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240819225822id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "6SYUHAY7KLQAPNZ6KUG5Y2XKJQBJR4FE",
+      "retrievedBodySha256": "4a47e4b66c4334b2dee682304c1fa3f27479419a09ab4ed7fe43d3d5ebe8a2a1",
+      "fixture": "20240819225822.html",
+      "fixtureSha256": "e1227919263397d752714b7682e0827e00e26c4b0e9478232c67f119921d106d",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240822122030",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240822122030id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "6DBSIRHEU6FBOAVDUXBI4I2AAVPY7NWS",
+      "retrievedBodySha256": "6d339614d9cfb822063964467526dcc1e379c2520d220883bb01950615570da2",
+      "fixture": "20240822122030.html",
+      "fixtureSha256": "15d28a77336b1e38f45326a13d9d6b590ab42ff76b5d2bd1eff84366010c6701",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240913214312",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240913214312id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "SAIYLQTGSYFBVQZUARPT26ALYWR566FU",
+      "retrievedBodySha256": "e02414b0529c74fb82db3727e7af0bd17a7f1863018c192840265a7feeda7372",
+      "fixture": "20240913214312.html",
+      "fixtureSha256": "a106306b6f63d3652e93fb357c2fac195c5f35ecb99a3e70935a3eb3d6ebfc05",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20240930233601",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20240930233601id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "QHTHKYLAJ24SM7TZFIF4NRWFMDXJORPB",
+      "retrievedBodySha256": "06f8a826226bd8eb607daf475f2e6b401ab8c32ef348564e49fa773bcb018f4e",
+      "fixture": "20240930233601.html",
+      "fixtureSha256": "0a264975e8ed819e13e22bff144de267082eff21047e3c08d066f80de941f8d6",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241006084818",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241006084818id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "33HDUFF45DK5EECSBBXBR5Y6VQ3XM57E",
+      "retrievedBodySha256": "ccbda8c79500a056a360d8a2bda0d995a77b4886effe616547a2a91cf6641406",
+      "fixture": "20241006084818.html",
+      "fixtureSha256": "f2694226e3087fcbc73798d2864e51a75e6246634ce32f45a26ef0fd3fb96a7b",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241015230010",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241015230010id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "IO5MYRBDVQ2RJCDQLC6AXGU54LXPPDJC",
+      "retrievedBodySha256": "192a2a8c65789e4e2bb129e5afcf72ff76dc0278cda251885024451b8d59955d",
+      "fixture": "20241015230010.html",
+      "fixtureSha256": "edd9385e1e086e1ff8589be3b1054054928c2ede618d83e91c8e1205a37135f8",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241105085401",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241105085401id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "FK7WQWWMOECKP57AAXF5GXGWIIWAXRLW",
+      "retrievedBodySha256": "e9673b91db467a915fd02ee450b609429bd28a047a434f6ba418a9dee326fcb6",
+      "fixture": "20241105085401.html",
+      "fixtureSha256": "37a894b85e2edcf64412af877c87050931955ca5ed1433952433a19e1eefdfc5",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241118221040",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241118221040id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "HQ3R2KWFTBTQHAB7EVNJHIKQIU42W5C4",
+      "retrievedBodySha256": "80a264e9216c6340378c4f183e413329686e1ecf172b81ae7f5c651b1a06ba9e",
+      "fixture": "20241118221040.html",
+      "fixtureSha256": "769efea2a1acc899f96c6f96b9c1f2ac053a65c46554f2071811e6ae161a1a61",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241122105040",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241122105040id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "S73DE7LIQ2ZOP7RV3DJS4JAI4JE5PKUM",
+      "retrievedBodySha256": "f0df6c2338b9af13d2d9caac5f7d1c78a030c40e323f7879869a7f8220153405",
+      "fixture": "20241122105040.html",
+      "fixtureSha256": "efe8d7ed8eaf6bfbb59f2deb4c2ebc94b0b84a799dc8b7afcfea0f8ecf58bdd3",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241212150559",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "archiveUrl": "https://web.archive.org/web/20241212150559id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen/",
+      "cdxDigest": "CBDCTADDWYEDV5YGBPOFODRNXARQ4VTU",
+      "retrievedBodySha256": "536da3839d9e0af6e0853a8d91a07afd321a504c5d9103c8a5e20a4a62f92d44",
+      "fixture": "20241212150559.html",
+      "fixtureSha256": "70e6741d8030cc2cd7836f7fceb6e9dc4750de72cbb8c3b70b7783b934376102",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20241217122501",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20241217122501id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "E6CSP5AAC7F7VC7POJCV5XPMEPQY7J2E",
+      "retrievedBodySha256": "6c1efe0f9f2f233d155914c3f26e63a87e33fdd875c226fe6e8a9257d48e03c0",
+      "fixture": "20241217122501.html",
+      "fixtureSha256": "5725ea789146efdfa6d505c6dc77ceb7ea05567d31e0beb1dc9086fd81c13459",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250103215245",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250103215245id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "7NA5N65ICRK4XVDBFVZHLTOVO6LNBYEB",
+      "retrievedBodySha256": "bb512a5033b5a539a368b6901e3732ab0ab102a13d832af69d8072bd9ca19f92",
+      "fixture": "20250103215245.html",
+      "fixtureSha256": "8ba90294b768687c75bda914c5d2acb3a83d964ca495b364c7819f94ef4116a1",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250125103946",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250125103946id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "BYNGH7MU6CC7NOT6C2FC6EASNCBJRGDJ",
+      "retrievedBodySha256": "1dcb46fc9de945976c57119bfd1a9e96462f35c27c44b6e3c9129ca5de1f1d87",
+      "fixture": "20250125103946.html",
+      "fixtureSha256": "96e52dff819064e0782f6b8206c93d70900b76922ec3731bcc247eef90643511",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250220151249",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250220151249id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "3BGVQ7JAQDASPA4K3DFMWQRHEZXGUGDC",
+      "retrievedBodySha256": "dac280958e64070b27e9c25c5173ad46d1b95e2e6277b44b95f6ed6ba0cd3e5a",
+      "fixture": "20250220151249.html",
+      "fixtureSha256": "bcc4d1d18988423716882067f1abb0f59b94a6226064258be3cf4def4ca24edc",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250420073927",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250420073927id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "AGM7K7YGCOSGX3LGZKUE2CFKGUAT4WPX",
+      "retrievedBodySha256": "40976629f0413d81245ce970d26dbecf08cb3c82adcb3f19b9fc309be1ae6174",
+      "fixture": "20250420073927.html",
+      "fixtureSha256": "ba6dad2c76f530ad0013222178a5a31237c96af4a6d4a7f2992c41a65bc117d9",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250504090549",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250504090549id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "UPZ6LLGCKXIBPB5SMKKTSUFACTROEKWW",
+      "retrievedBodySha256": "f0938b493cf2e431e30979993dbb017e2006fc12fedab2ef78071edd620a3f6d",
+      "fixture": "20250504090549.html",
+      "fixtureSha256": "6a64b2e7bd51eaaa1d09db070df62abb0253585173e67b9d9996f9b74c6bbccc",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250608232727",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250608232727id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "UKGF5U5TN3BQ2HI5RZ6NLDCS4I3G4C3E",
+      "retrievedBodySha256": "a09da457c758539b59d291d3a18d6816c3ffecd7390614198e1f9c531e3de436",
+      "fixture": "20250608232727.html",
+      "fixtureSha256": "f6f9871ded2c1d56252c394b4e4fbc428dd62b23e4f989c96099f0e017b4f17c",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250809191530",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250809191530id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "O73XVDL6BGT5FTESHAJBZUTSNAR77VJ6",
+      "retrievedBodySha256": "d0de395e23977ae8f1c829a9d8a4a81f3d904793fba967d2d34542cdeb95d73b",
+      "fixture": "20250809191530.html",
+      "fixtureSha256": "cf9ef663527a5bcbb3c3e56dae77e2618e05e812d1c9e1dd40174a37fd603537",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250812174123",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250812174123id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "7UA3I6DCWKKREI4LQUUNF5SUES5QXDCE",
+      "retrievedBodySha256": "b97457c286c5d4140464ac85413949fd667afa5e4f5470b426b025ad50fb1bf1",
+      "fixture": "20250812174123.html",
+      "fixtureSha256": "c22b05a8592abfa00ed1d7fda2f38bf912d1afbd0dfc92a2f7894145cee2a462",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20250905191130",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20250905191130id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "MVPXHAZ2Q7IKDOIMJ3HDX5E55KYCIBV2",
+      "retrievedBodySha256": "b97457c286c5d4140464ac85413949fd667afa5e4f5470b426b025ad50fb1bf1",
+      "fixture": "20250905191130.html",
+      "fixtureSha256": "c22b05a8592abfa00ed1d7fda2f38bf912d1afbd0dfc92a2f7894145cee2a462",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20251009082611",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20251009082611id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "4SBA7IXANCV5MM7GOOKNZYPXZZ4LVVHS",
+      "retrievedBodySha256": "d384bcd76cb09dd11afc66532ec28507f5e8d6c844a61e4d470b82efc185babc",
+      "fixture": "20251009082611.html",
+      "fixtureSha256": "b8fa80ac6a4a17c376666ab2171d0c9f12d6f5cd6deefe5e1bd9a1f7827cc929",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20251011075348",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20251011075348id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "F4LQKHCMPNSTMR2FPTZF45YF4XSHLPXE",
+      "retrievedBodySha256": "b8d475b7691ad996d3c3d74be83ccefd263620986f1f7641fe6d88dc5ca01cff",
+      "fixture": "20251011075348.html",
+      "fixtureSha256": "aaab6d68c344b5fef3b32800c4e7e52a8be326b3e30053ca4e91844f163281de",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20251107155955",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20251107155955id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "SU3NUCEVB6QZU2S2WRCAXEZHRGDDUMXV",
+      "retrievedBodySha256": "9d71f8f9ea74f87c38a7b000b125c87ffc13fc66a208c1577309dd79e792fca7",
+      "fixture": "20251107155955.html",
+      "fixtureSha256": "ba04bc2bcc35454c8959d5c3adddb7211f4af218ffbb45e1e0ab0496006a04b6",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗  🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260103002153",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260103002153id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "YPZ47IZ6CVA6NZG3YUCPP33ZHBI63ROK",
+      "retrievedBodySha256": "c060fb4783187a7092d6e1cc0af932499e64b85d833ffdf3e45f25c1d2d8a499",
+      "fixture": "20260103002153.html",
+      "fixtureSha256": "374315fb46e7527f2ca4abdcd41606e0e4483705bb7e950e85c3b5f286f6de37",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260103131233",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260103131233id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "5PRUNFC75STAEH7QY2W442N3UVESNHQO",
+      "retrievedBodySha256": "d65d94718ae36c86be2f78fb882597ec470a07325e0e8dc37dc04a7745e56309",
+      "fixture": "20260103131233.html",
+      "fixtureSha256": "374315fb46e7527f2ca4abdcd41606e0e4483705bb7e950e85c3b5f286f6de37",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260104095104",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260104095104id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "PGDN3G2JCDZWD674CPRK4N7TZYCGRZ2V",
+      "retrievedBodySha256": "cae03d02ad902a4534703fc88ba0ecafef9e45f174c84b3b9023b2caa92d3871",
+      "fixture": "20260104095104.html",
+      "fixtureSha256": "374315fb46e7527f2ca4abdcd41606e0e4483705bb7e950e85c3b5f286f6de37",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260211205211",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260211205211id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "MSFQNFI5JTT7IG6BQ36QW6RYRRBNHN2U",
+      "retrievedBodySha256": "f6d8c391a9b85320a2e5bd3f406fce93b1d2c3a84ec1cbcfb37e1652c871749f",
+      "fixture": "20260211205211.html",
+      "fixtureSha256": "f709e4390d9031e7d76f73b797e26e52400d8683fe74ae8d5fe96d5ce5e23f69",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260213111906",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260213111906id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "VZVKB5TZ6RYAWOUY4OOHPPWQI4V6MW6Z",
+      "retrievedBodySha256": "e75489c41a4abc9e3bfe3ebef174883c13d58da1e86c24eeaed69d23876caeb8",
+      "fixture": "20260213111906.html",
+      "fixtureSha256": "6add89d86192d720ee7a13626b95bd4a1e7cd7426196e0501b4274298c39f695",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260307212128",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260307212128id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "FHHKUMGX4VBAOCHVCWRZUH2MYYJDIZUV",
+      "retrievedBodySha256": "b5cd16124491df92d0704361b1162e5162ced3e15fefce35746cc1104c8a0ba6",
+      "fixture": "20260307212128.html",
+      "fixtureSha256": "9eccc4f6f4f04580c1b41acd56e0375eb438e152383e450852f98c84d978bcd8",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260501084427",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260501084427id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "LBCOA4OJGOK64BNFMMX6NTL5BUQU2VQR",
+      "retrievedBodySha256": "0be65cb9541de51bed0502bc2dd7e41ff2497fa302afe20e2d3ca00c383fa03e",
+      "fixture": "20260501084427.html",
+      "fixtureSha256": "8e738187917fcb1919804b42343f2f3ae0fdc3d73e7bcfae11db5db9d884d3f0",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "❗ 🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗",
+          "status": "restricted",
+          "maintenance": false
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    },
+    {
+      "timestamp": "20260516091714",
+      "originalUrl": "https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "archiveUrl": "https://web.archive.org/web/20260516091714id_/https://info.schulportal.hessen.de/status-des-schulportal-hessen-3/",
+      "cdxDigest": "DCOTNJ2L4SS2XP53D45PNGAFEBLUA7XI",
+      "retrievedBodySha256": "7a3459e6ccfec27dac7d39af3a647665a1e49ce1808672ba5c3305cc740390f7",
+      "fixture": "20260516091714.html",
+      "fixtureSha256": "ac0e2fd84eaba2b06bbbf4519d67dff9618521cadf72c5bbd702d14dfafe9131",
+      "expected": [
+        {
+          "id": "IdM",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "PaedOrg",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "LernSys",
+          "symbols": "❗🛠",
+          "status": "restricted",
+          "maintenance": true
+        },
+        {
+          "id": "PaedNet",
+          "symbols": "🆗 🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "BS",
+          "symbols": "🆗🛠",
+          "status": "operational",
+          "maintenance": true
+        },
+        {
+          "id": "Support",
+          "symbols": "🆗",
+          "status": "operational",
+          "maintenance": false
+        }
+      ]
+    }
+  ]
+}

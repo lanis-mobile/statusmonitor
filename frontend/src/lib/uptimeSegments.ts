@@ -137,3 +137,27 @@ export function buildUptimeSegments(
   }
   return out;
 }
+
+/** Equal time spans, including empty days, rather than equal sample counts. */
+export function buildTimedUptimeSegments(
+  history: HistoryPayload,
+  segmentCount: number,
+  upColor: string,
+  downColor: string,
+  noDataColor: string,
+): UptimeSegment[] {
+  if (segmentCount <= 0 || history.to <= history.from) return [];
+  const buckets: HistoryPayload['points'][] = Array.from({ length: segmentCount }, () => []);
+  const duration = (history.to - history.from) / segmentCount;
+  for (const point of history.points) {
+    if (point[0] < history.from || point[0] > history.to) continue;
+    const index = Math.min(segmentCount - 1, Math.floor((point[0] - history.from) / duration));
+    buckets[index].push(point);
+  }
+  return buckets.map((points, index) => {
+    const cell = buildUptimeSegments(points, 1, upColor, downColor, noDataColor)[0];
+    const range = `${formatCheckedAt(history.from + index * duration)} – ${formatCheckedAt(history.from + (index + 1) * duration)}`;
+    const lines = [range, ...(cell?.lines.slice(1) ?? ['Keine Daten'])];
+    return { title: lines.join(' · '), lines, background: cell?.background ?? noDataColor };
+  });
+}

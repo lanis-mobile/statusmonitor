@@ -10,16 +10,24 @@ import 'clock.dart';
 import 'config.dart';
 import 'database.dart';
 import 'models.dart';
+import 'official.dart';
 
 class StatusApp {
-  StatusApp({required this.db, required this.config, required this.clock});
+  StatusApp({
+    required this.db,
+    required this.config,
+    required this.clock,
+    OfficialStatusService? official,
+  }) : official = official ?? OfficialStatusService(db: db, clock: clock);
 
   final StatusDatabase db;
   final AppConfig config;
   final Clock clock;
+  final OfficialStatusService official;
 
   Handler get handler {
     final router = Router()
+      ..get('/api/official', (Request request) => _json(official.payload()))
       ..get('/api/status', _status)
       ..get('/api/summary', _summary)
       ..get('/api/incidents', _incidents)

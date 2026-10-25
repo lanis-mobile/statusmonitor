@@ -7,3 +7,4 @@ export 'src/holidays.dart';
 export 'src/models.dart';
 export 'src/probe.dart';
 export 'src/server.dart';
+export 'src/official.dart';

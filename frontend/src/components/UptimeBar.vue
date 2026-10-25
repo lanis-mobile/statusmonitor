@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { buildHourCells, buildUptimeSegments } from '../lib/uptimeSegments';
+import { buildHourCells, buildTimedUptimeSegments, buildUptimeSegments } from '../lib/uptimeSegments';
 import { loginUptimeColors } from '../lib/uptimeColors';
 import type { HistoryPayload } from '../types';
 
@@ -13,6 +13,7 @@ const props = withDefaults(
     noDataColor?: string;
     testId?: string;
     perPoint?: boolean;
+    timeBased?: boolean;
     rounded?: boolean;
   }>(),
   {
@@ -21,6 +22,7 @@ const props = withDefaults(
     noDataColor: loginUptimeColors.noData,
     testId: 'uptime-bar',
     perPoint: false,
+    timeBased: false,
     rounded: false,
   },
 );
@@ -36,7 +38,11 @@ const cells = computed(() =>
         props.noDataColor,
         props.segments,
       )
-    : buildUptimeSegments(
+    : props.timeBased
+      ? buildTimedUptimeSegments(
+          props.history, props.segments, props.upColor, props.downColor, props.noDataColor,
+        )
+      : buildUptimeSegments(
         props.history.points,
         props.segments,
         props.upColor,

@@ -10,6 +10,7 @@ import 'database.dart';
 import 'fixtures.dart';
 import 'holidays.dart';
 import 'probe.dart';
+import 'official.dart';
 
 Future<HttpServer> runServer({AppConfig? config}) async {
   final cfg = config ?? AppConfig.fromEnvironment();
@@ -18,6 +19,7 @@ Future<HttpServer> runServer({AppConfig? config}) async {
   final clock = Clock(fixedNow: cfg.now);
   final db = StatusDatabase.open(cfg.databasePath);
   final holidays = HolidayService(db: db, config: cfg, clock: clock);
+  final official = OfficialStatusService(db: db, clock: clock);
   final probe = ProbeService(db: db, config: cfg, clock: clock);
 
   if (cfg.isFixture) {
@@ -26,6 +28,10 @@ Future<HttpServer> runServer({AppConfig? config}) async {
         ? loadFixtures(cfg.fixtureDir)
         : generateFixtureSet(now: now);
     seedDatabase(db, fixtures);
+    final officialFixture = File('${cfg.fixtureDir}/official.html');
+    if (officialFixture.existsSync()) {
+      official.seed(officialFixture.readAsStringSync());
+    }
   } else {
     await holidays.refreshIfNeeded();
     try {
@@ -36,7 +42,7 @@ Future<HttpServer> runServer({AppConfig? config}) async {
     }
   }
 
-  final app = StatusApp(db: db, config: cfg, clock: clock);
+  final app = StatusApp(db: db, config: cfg, clock: clock, official: official);
   final server = await io.serve(app.handler, InternetAddress.anyIPv4, cfg.port);
   stderr.writeln(
     'Listening on http://${server.address.address}:${server.port}',
@@ -44,7 +50,13 @@ Future<HttpServer> runServer({AppConfig? config}) async {
 
   Timer? probeTimer;
   Timer? holidayTimer;
+  Timer? officialTimer;
   if (!cfg.isFixture) {
+    unawaited(official.refresh());
+    officialTimer = Timer.periodic(
+      officialRefreshInterval,
+      (_) => unawaited(official.refresh()),
+    );
     probeTimer = Timer.periodic(const Duration(minutes: 1), (_) async {
       try {
         await probe.runOnce();
@@ -59,7 +71,7 @@ Future<HttpServer> runServer({AppConfig? config}) async {
   }
 
   server.autoCompress = true;
-  _attachShutdown(server, db, probeTimer, holidayTimer);
+  _attachShutdown(server, db, probeTimer, holidayTimer, officialTimer);
   return server;
 }
 
@@ -68,6 +80,7 @@ void _attachShutdown(
   StatusDatabase db,
   Timer? probeTimer,
   Timer? holidayTimer,
+  Timer? officialTimer,
 ) {
   var closing = false;
   Future<void> shutdown(String signal) async {
@@ -76,6 +89,7 @@ void _attachShutdown(
     stderr.writeln('Shutting down ($signal)');
     probeTimer?.cancel();
     holidayTimer?.cancel();
+    officialTimer?.cancel();
     await server.close(force: true);
     db.dispose();
   }

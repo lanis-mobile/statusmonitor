@@ -11,12 +11,14 @@ import type { HistoryPayload, SummaryPayload } from '../types';
 
 const props = defineProps<{
   history24h: HistoryPayload;
+  history30d: HistoryPayload | null;
   summary: SummaryPayload;
 }>();
 
 const history1h = computed(() => historyLastHour(props.history24h));
 const uptime1h = computed(() => uptimeFromPoints(history1h.value.points));
 const uptime24h = computed(() => props.summary.windows['24h'].uptime);
+const uptime30d = computed(() => props.summary.windows['30d'].uptime);
 </script>
 
 <template>
@@ -45,7 +47,7 @@ const uptime24h = computed(() => props.summary.windows['24h'].uptime);
       />
     </div>
 
-    <div class="px-4 py-3">
+    <div class="border-b border-[#d0d7de] px-4 py-3">
       <div class="mb-2 flex items-baseline justify-between gap-3">
         <p class="text-sm font-medium">Letzte 24 Stunden</p>
         <p class="text-sm tabular-nums text-[#1f8b4c]">
@@ -60,6 +62,24 @@ const uptime24h = computed(() => props.summary.windows['24h'].uptime);
         :down-color="loginUptimeColors.down"
         :no-data-color="loginUptimeColors.noData"
         test-id="uptime-bar-24h"
+      />
+    </div>
+    <div v-if="history30d" class="px-4 py-3">
+      <div class="mb-2 flex items-baseline justify-between gap-3">
+        <p class="text-sm font-medium">Letzte 30 Tage</p>
+        <p class="text-sm tabular-nums text-[#1f8b4c]">
+          {{ formatUptimePercent(uptime30d) }}
+        </p>
+      </div>
+      <UptimeBar
+        :history="history30d"
+        :segments="30"
+        :time-based="true"
+        :rounded="true"
+        :up-color="loginUptimeColors.up"
+        :down-color="loginUptimeColors.down"
+        :no-data-color="loginUptimeColors.noData"
+        test-id="uptime-bar-30d"
       />
     </div>
   </section>

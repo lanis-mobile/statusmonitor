@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:sqlite3/sqlite3.dart';
@@ -42,7 +43,27 @@ class StatusDatabase {
         updated_at INTEGER NOT NULL
       );
     ''');
+    db.execute('''
+      CREATE TABLE IF NOT EXISTS official_status (
+        id INTEGER PRIMARY KEY CHECK (id = 1),
+        payload TEXT NOT NULL
+      );
+    ''');
     return StatusDatabase._(db);
+  }
+
+  Map<String, dynamic>? officialStatus() {
+    final rows = _db.select('SELECT payload FROM official_status WHERE id = 1');
+    return rows.isEmpty
+        ? null
+        : jsonDecode(rows.first['payload'] as String) as Map<String, dynamic>;
+  }
+
+  void saveOfficialStatus(Map<String, Object?> payload) {
+    _db.execute(
+      'INSERT OR REPLACE INTO official_status (id, payload) VALUES (1, ?)',
+      [jsonEncode(payload)],
+    );
   }
 
   void insertCheck(CheckRecord record) {

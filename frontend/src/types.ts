@@ -49,3 +49,17 @@ export interface IncidentsPayload {
   to: number;
   incidents: Array<{ start: number; end: number }>;
 }
+
+export interface OfficialPayload {
+  sourceUrl: string;
+  fetchedAt: number | null;
+  stale: boolean;
+  services: Array<{
+    id: string;
+    name: string;
+    status: 'operational' | 'restricted' | 'unknown';
+    maintenance: boolean;
+    notice: string;
+    update: string;
+  }>;
+}

@@ -19,7 +19,69 @@ Cloudflare does not cache extensionless JSON by default. Add a Cache Rule:
 
 That keeps origin hits close to two per unique URL per minute (plus one per POP on refresh).
 
+## Official status ingestion
+
+The first detail tab displays operator notices from
+`https://status.schulportal.hessen.de/`. The backend fetches that stable URL at
+startup and every five minutes, following up to five redirects. No versioned
+WordPress URL is configured or stored. Redirects must use HTTPS on
+`schulportal.hessen.de` or one of its subdomains, without credentials or custom
+ports. A move outside this domain requires a deliberate code change.
+
+Fetches have a 25-second overall deadline and a 2 MiB decoded-body limit.
+Only a complete parse of all six service sections replaces the SQLite snapshot;
+network errors or layout changes retain the last successful snapshot across
+restarts. API requests never trigger upstream requests. The frontend polls the
+cached API every minute, independently of login-monitoring requests.
+
+The parser produces plain text and fixed status enums only. Scripts, styles,
+embedded content and other active subtrees are discarded. No upstream URLs or
+HTML attributes are forwarded. The frontend uses Vue text interpolation only,
+and the original-page link is a fixed HTTPS URL. Encoded markup is displayed as
+literal text. Responses also send `nosniff` and a CSP prohibiting inline scripts,
+objects, frames embedding this page, and foreign script/connect sources.
+Inline CSS remains allowed for the existing charts; upstream CSS is discarded.
+
+`test/fixtures/official.html` records the official article on 2026-10-25 for
+offline parser and browser tests. Fixture mode does not contact the official site.
+
+A further 50 Wayback snapshots of the original and `-3` pages (2023–2026) are
+covered by offline regressions; see [the historic parser audit](wayback-parser-audit.md)
+for scope, findings, source URLs and reproduction commands.
+
 ## Endpoints
+
+### `GET /api/official`
+
+Last successfully parsed operator notices (independent of our login probes):
+
+```json
+{
+  "sourceUrl": "https://status.schulportal.hessen.de/",
+  "fetchedAt": 1792926000,
+  "stale": false,
+  "services": [
+    {
+      "id": "PaedOrg",
+      "name": "Pädagogische Organisation (PaedOrg)",
+      "status": "restricted",
+      "maintenance": true,
+      "notice": "Operator status notice and previous restriction details",
+      "update": "Scheduled maintenance and previous update details"
+    }
+  ]
+}
+```
+
+`status` is `operational`, `restricted`, or `unknown`, based on the operator's
+summary symbols; it is never inferred from our probes. `maintenance` is separate
+because maintenance and restrictions can coexist. `fetchedAt` is the retrieval
+time, not the operator's publication time. `stale` is true after a failed fetch,
+when the snapshot is at least ten minutes old, or when no snapshot exists.
+Before the first successful fetch, `fetchedAt` is null and `services` is empty.
+The endpoint returns 200 in this case so the frontend can show an unavailable
+state without affecting the monitoring tabs.
+
 
 ### `GET /api/status`
 

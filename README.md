@@ -1,6 +1,10 @@
 # Statusmonitor
 
-Uptime status page for [Schulportal Hessen](https://start.schulportal.hessen.de). A Dart process logs a `liblanis` test-login every minute, stores response times in SQLite (2-year retention), and serves a statically built Vue page plus a JSON API from one HTTP server.
+Official operator notices and uptime status page for [Schulportal Hessen](https://start.schulportal.hessen.de). A Dart process logs a `liblanis` test-login every minute, stores response times in SQLite (2-year retention), and serves a statically built Vue page plus a JSON API from one HTTP server.
+
+The primary tab shows text extracted from `https://status.schulportal.hessen.de/`,
+refreshed by the backend every five minutes. Login measurements remain available
+in the existing detail tabs. Failed official fetches retain the last SQLite snapshot.
 
 See [docs/API.md](docs/API.md) for endpoints, cache headers, and the Cloudflare Cache Rule.
 
@@ -38,6 +42,12 @@ cd frontend && npm ci && npm run build
 STATUSMONITOR_MODE=fixture STATUSMONITOR_NOW=1784116800 \
   STATUSMONITOR_STATIC_DIR=frontend/dist dart run bin/server.dart
 cd frontend && npx playwright install --with-deps && npm run test:e2e
+```
+
+Manual live check of the official status parser (no login credentials needed):
+
+```bash
+dart run tool/check_official_live.dart
 ```
 
 ## Docker

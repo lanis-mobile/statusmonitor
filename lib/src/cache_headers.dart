@@ -5,6 +5,12 @@ const cacheControlValue =
 
 const cacheHeaders = {
   'Cache-Control': cacheControlValue,
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'no-referrer',
+  'Content-Security-Policy':
+      "default-src 'self'; script-src 'self'; "
+      "style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; "
+      "object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
   'CDN-Cache-Control': 'max-age=30',
   'Cloudflare-CDN-Cache-Control': 'max-age=30',
 };

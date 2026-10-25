@@ -3,6 +3,7 @@ import {
   HOUR_CELL_COUNT,
   applyOptimisticLatest,
   buildHourCells,
+  buildTimedUptimeSegments,
   hourPointTooltip,
   padHourPoints,
   segmentTooltip,
@@ -132,5 +133,29 @@ describe('segmentTooltip', () => {
     ]);
     expect(tip.lines[1]).toBe('50% Ausfall');
     expect(tip.lines[2]).toBe('200 ms');
+  });
+});
+
+describe('buildTimedUptimeSegments', () => {
+  it('keeps 30 daily cells, including missing days, and assigns boundary samples once', () => {
+    const day = 86400;
+    const cells = buildTimedUptimeSegments({
+      window: '30d', from: day, to: 31 * day, bucketSeconds: 3600,
+      points: [[day - 1, null, 0], [day, 200, 1], [2 * day, null, 0], [31 * day, 100, 1], [31 * day + 1, null, 0]],
+    }, 30, up, down, noData);
+    expect(cells).toHaveLength(30);
+    expect(cells[0].background).toBe(up);
+    expect(cells[1].background).toBe(down);
+    expect(cells[2].background).toBe(noData);
+    expect(cells[29].background).toBe(up);
+    expect(cells[2].lines[1]).toBe('Keine Daten');
+    expect(cells[0].lines[0]).toContain('–');
+  });
+  it('shows empty history as missing data rather than uptime', () => {
+    const cells = buildTimedUptimeSegments({
+      window: '30d', from: 1, to: 30 * 86400 + 1, bucketSeconds: 3600, points: [],
+    }, 30, up, down, noData);
+    expect(cells).toHaveLength(30);
+    expect(cells.every(cell => cell.background === noData && cell.lines[1] === 'Keine Daten')).toBe(true);
   });
 });

@@ -3,6 +3,7 @@ import { computed, defineAsyncComponent, ref } from 'vue';
 import RangePills from './components/RangePills.vue';
 import LoginAvailability from './components/LoginAvailability.vue';
 import IncidentList from './components/IncidentList.vue';
+import OfficialStatus from './components/OfficialStatus.vue';
 import { windowForIncident } from './lib/chartData';
 import { bannerTitle, formatCheckedAt } from './lib/statusCopy';
 import { windowsWithAdditionalData } from './lib/windows';
@@ -16,21 +17,24 @@ import type {
 const StatusChart = defineAsyncComponent(() => import('./components/StatusChart.vue'));
 
 const props = defineProps<{
-  summary: SummaryPayload;
-  history: HistoryPayload;
-  history24h: HistoryPayload;
+  summary: SummaryPayload | null;
+  history: HistoryPayload | null;
+  history24h: HistoryPayload | null;
+  history30d: HistoryPayload | null;
   incidents: Array<{ start: number; end: number }>;
   holidays: HolidayPeriod[];
   range: HistoryWindow;
   windows: HistoryWindow[];
   labels: Record<HistoryWindow, string>;
   load: (window: HistoryWindow) => void;
+  loading: boolean;
+  error: string | null;
 }>();
 
-const tab = ref<'incidents' | 'latency' | 'uptime'>('incidents');
+const tab = ref<'official' | 'incidents' | 'latency' | 'uptime'>('official');
 const chartHighlight = ref<{ start: number; end: number } | null>(null);
 const chartWindows = computed(() =>
-  windowsWithAdditionalData(props.windows, props.summary),
+  props.summary ? windowsWithAdditionalData(props.windows, props.summary) : [],
 );
 
 const chartTheme = {
@@ -47,6 +51,7 @@ const chartTheme = {
 };
 
 function focusIncident(range: { start: number; end: number }) {
+  if (!props.summary || !props.history24h) return;
   const now = props.summary.current.checkedAt ?? props.history24h.to;
   void props.load(windowForIncident(range.start, now));
   tab.value = 'latency';
@@ -57,6 +62,7 @@ function focusIncident(range: { start: number; end: number }) {
 <template>
   <div class="min-h-dvh bg-[#f4f5f7] text-[#1f2328]" style="font-family: system-ui, sans-serif">
     <div
+      v-if="summary"
       class="px-4 py-3 text-sm text-white sm:px-8"
       :class="
         summary.current.status === 'operational'
@@ -80,36 +86,38 @@ function focusIncident(range: { start: number; end: number }) {
     <div class="mx-auto max-w-5xl px-4 py-6 sm:px-8">
       <p class="text-xs tracking-wide text-[#6b7280] uppercase">Lanis-Mobile</p>
       <h1 class="mt-1 text-2xl font-semibold">Schulportal Hessen</h1>
-      <p class="mt-1 text-sm text-[#6b7280]">
-        Login-Test jede Minute über
-        <a
-          href="https://pub.dev/packages/liblanis"
-          class="text-[#1f2328] underline decoration-[#d0d7de] underline-offset-2 hover:decoration-[#6b7280]"
-          target="_blank"
-          rel="noopener noreferrer"
-        >liblanis</a>.
-        <span v-if="summary.current.inHolidays" data-testid="holiday-hint">
-          Derzeit Schulferien ({{ summary.current.holidayLabel }}).
-        </span>
+      <p v-if="summary?.current.inHolidays" class="mt-1 text-sm text-[#6b7280]" data-testid="holiday-hint">
+        Derzeit Schulferien ({{ summary.current.holidayLabel }}).
       </p>
 
-      <LoginAvailability :history24h="history24h" :summary="summary" />
+      <LoginAvailability v-if="history24h && summary" :history24h="history24h" :history30d="history30d" :summary="summary" />
 
       <section class="mt-4 border border-[#d0d7de] bg-white">
         <div
-          class="flex border-b border-[#d0d7de]"
+          class="flex overflow-x-auto overflow-y-hidden border-b border-[#d0d7de]"
           role="tablist"
           aria-label="Details"
         >
           <button
             type="button"
             role="tab"
+            data-testid="tab-official"
+            class="shrink-0 border-b-2 px-4 py-3 text-sm"
+            :class="tab === 'official' ? 'border-[#1f2328] font-medium' : 'border-transparent text-[#6b7280]'"
+            :aria-selected="tab === 'official'"
+            @click="tab = 'official'"
+          >
+            Offizielle Meldungen
+          </button>
+          <button
+            type="button"
+            role="tab"
             data-testid="tab-incidents"
-            class="px-4 py-3 text-sm"
+            class="shrink-0 border-b-2 px-4 py-3 text-sm"
             :class="
               tab === 'incidents'
-                ? '-mb-px border-b-2 border-[#1f2328] font-medium'
-                : 'text-[#6b7280]'
+                ? 'border-[#1f2328] font-medium'
+                : 'border-transparent text-[#6b7280]'
             "
             :aria-selected="tab === 'incidents'"
             @click="tab = 'incidents'"
@@ -120,11 +128,11 @@ function focusIncident(range: { start: number; end: number }) {
             type="button"
             role="tab"
             data-testid="tab-latency"
-            class="px-4 py-3 text-sm"
+            class="shrink-0 border-b-2 px-4 py-3 text-sm"
             :class="
               tab === 'latency'
-                ? '-mb-px border-b-2 border-[#1f2328] font-medium'
-                : 'text-[#6b7280]'
+                ? 'border-[#1f2328] font-medium'
+                : 'border-transparent text-[#6b7280]'
             "
             :aria-selected="tab === 'latency'"
             @click="tab = 'latency'"
@@ -135,11 +143,11 @@ function focusIncident(range: { start: number; end: number }) {
             type="button"
             role="tab"
             data-testid="tab-uptime"
-            class="px-4 py-3 text-sm"
+            class="shrink-0 border-b-2 px-4 py-3 text-sm"
             :class="
               tab === 'uptime'
-                ? '-mb-px border-b-2 border-[#1f2328] font-medium'
-                : 'text-[#6b7280]'
+                ? 'border-[#1f2328] font-medium'
+                : 'border-transparent text-[#6b7280]'
             "
             :aria-selected="tab === 'uptime'"
             @click="tab = 'uptime'"
@@ -148,7 +156,10 @@ function focusIncident(range: { start: number; end: number }) {
           </button>
         </div>
 
-        <div v-if="tab === 'incidents'">
+        <OfficialStatus v-show="tab === 'official'" />
+        <p v-if="tab !== 'official' && loading" class="p-4 text-sm text-[#6b7280]">Lade Status…</p>
+        <p v-else-if="tab !== 'official' && error" class="p-4 text-sm text-red-800">{{ error }}</p>
+        <div v-else-if="tab === 'incidents' && summary && history24h">
           <IncidentList
             :incidents="incidents"
             :status="summary.current.status"
@@ -157,7 +168,7 @@ function focusIncident(range: { start: number; end: number }) {
           />
         </div>
 
-        <div v-else-if="tab === 'latency'">
+        <div v-else-if="tab === 'latency' && history">
           <div class="flex flex-wrap gap-1.5 border-b border-[#d0d7de] px-4 py-3 sm:justify-end">
             <RangePills
               :windows="chartWindows"
@@ -188,7 +199,7 @@ function focusIncident(range: { start: number; end: number }) {
         </div>
 
         <div
-          v-else
+          v-else-if="tab === 'uptime' && summary"
           class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7"
           data-testid="uptime-stats"
         >
