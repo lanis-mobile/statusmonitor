@@ -32,6 +32,10 @@ const props = defineProps<{
 }>();
 
 const tab = ref<'official' | 'incidents' | 'latency' | 'uptime'>('official');
+const excludeHolidays = ref(true);
+const availabilityWindows = computed(() =>
+  excludeHolidays.value ? props.summary?.windowsExcludingHolidays : props.summary?.windows,
+);
 const chartHighlight = ref<{ start: number; end: number } | null>(null);
 const chartWindows = computed(() =>
   props.summary ? windowsWithAdditionalData(props.windows, props.summary) : [],
@@ -200,16 +204,37 @@ function focusIncident(range: { start: number; end: number }) {
 
         <div
           v-else-if="tab === 'uptime' && summary"
-          class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7"
           data-testid="uptime-stats"
         >
-          <div
-            v-for="id in chartWindows"
-            :key="id"
-            class="-mb-px -mr-px border border-[#d0d7de] bg-white px-3 py-3"
-          >
-            <p class="text-xs text-[#6b7280]">{{ labels[id] }}</p>
-            <p class="mt-1 text-lg tabular-nums">{{ summary.windows[id].uptime.toFixed(2) }}%</p>
+          <div class="flex flex-wrap items-center justify-end gap-3 border-b border-[#d0d7de] px-4 py-3">
+            <button
+              type="button"
+              role="switch"
+              :aria-checked="excludeHolidays"
+              class="flex items-center gap-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+              @click="excludeHolidays = !excludeHolidays"
+            >
+              Schulferien ausschließen
+              <span
+                aria-hidden="true"
+                class="inline-flex h-5 w-9 shrink-0 items-center rounded-full p-0.5 transition-colors"
+                :class="excludeHolidays ? 'bg-[#1f8b4c]' : 'bg-[#9ca3af]'"
+              >
+                <span class="h-4 w-4 rounded-full bg-white transition-transform" :class="excludeHolidays ? 'translate-x-4' : 'translate-x-0'" />
+              </span>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7">
+            <div
+              v-for="id in chartWindows"
+              :key="id"
+              class="-mb-px -mr-px border border-[#d0d7de] bg-white px-3 py-3"
+            >
+              <p class="text-xs text-[#6b7280]">{{ labels[id] }}</p>
+              <p class="mt-1 text-lg tabular-nums">
+                {{ availabilityWindows?.[id]?.checks ? `${availabilityWindows[id].uptime.toFixed(2)}%` : 'Keine Daten' }}
+              </p>
+            </div>
           </div>
         </div>
       </section>

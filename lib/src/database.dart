@@ -145,7 +145,7 @@ class StatusDatabase {
     return incidents;
   }
 
-  WindowStats statsInRange(int from, int to) {
+  WindowStats statsInRange(int from, int to, {bool excludeHolidays = false}) {
     final row = _db
         .select(
           '''
@@ -155,6 +155,7 @@ class StatusDatabase {
         AVG(ms) AS avg_ms
       FROM checks
       WHERE ts >= ? AND ts <= ?
+        ${excludeHolidays ? 'AND NOT EXISTS (SELECT 1 FROM holidays WHERE checks.ts >= holidays.start_ts AND checks.ts <= holidays.end_ts)' : ''}
       ''',
           [from, to],
         )
@@ -191,11 +192,13 @@ class StatusDatabase {
       ''',
       [bucketSeconds, bucketSeconds, alignedFrom, to],
     );
-    final byBucket = {
-      for (final row in rows) row['bucket'] as int: row,
-    };
+    final byBucket = {for (final row in rows) row['bucket'] as int: row};
     final points = <HistoryPoint>[];
-    for (var bucket = alignedFrom; bucket <= alignedTo; bucket += bucketSeconds) {
+    for (
+      var bucket = alignedFrom;
+      bucket <= alignedTo;
+      bucket += bucketSeconds
+    ) {
       final row = byBucket[bucket];
       if (row == null) {
         points.add(HistoryPoint(ts: bucket, ms: null, ok: null));

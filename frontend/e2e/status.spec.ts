@@ -80,6 +80,11 @@ test('login monitoring shows incidents and charts', async ({
 
   await page.getByTestId('tab-uptime').click();
   await expect(page.getByTestId('uptime-stats')).toBeVisible();
+  const holidaySwitch = page.getByRole('switch', { name: 'Schulferien ausschließen' });
+  await expect(holidaySwitch).toBeChecked();
+  await expect(page.getByTestId('uptime-stats')).toContainText('Keine Daten');
+  await holidaySwitch.click();
+  await expect(holidaySwitch).not.toBeChecked();
   await expect(page.getByTestId('uptime-stats')).toContainText('97.92%');
   await expect(page.getByTestId('uptime-stats')).toContainText('2 Jahre');
 

@@ -106,11 +106,19 @@ class StatusApp {
   Response _summary(Request request) {
     final now = clock.nowSeconds;
     final windows = <String, Object?>{};
+    final windowsExcludingHolidays = <String, Object?>{};
     for (final id in HistoryWindows.ids) {
       final duration = HistoryWindows.durationOf(id)!;
       windows[id] = db.statsInRange(now - duration, now).toJson();
+      windowsExcludingHolidays[id] = db
+          .statsInRange(now - duration, now, excludeHolidays: true)
+          .toJson();
     }
-    return _json({'current': _statusPayload(), 'windows': windows});
+    return _json({
+      'current': _statusPayload(),
+      'windows': windows,
+      'windowsExcludingHolidays': windowsExcludingHolidays,
+    });
   }
 
   Response _incidents(Request request) {

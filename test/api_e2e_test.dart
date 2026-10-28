@@ -98,6 +98,36 @@ void main() {
     expect((window['uptime'] as num).toDouble(), closeTo(expected, 0.1));
   });
 
+  test(
+    '/api/summary excludes holiday checks in every availability window',
+    () async {
+      final body = await jsonBody(await get('/api/summary'));
+      for (final id in HistoryWindows.ids) {
+        final from = fixtures.now - HistoryWindows.durationOf(id)!;
+        final checks = fixtures.checks
+            .where(
+              (c) =>
+                  c.ts >= from &&
+                  c.ts <= fixtures.now &&
+                  !fixtures.holidays.any((h) => h.contains(c.ts)),
+            )
+            .toList();
+        final stats = body['windowsExcludingHolidays'][id];
+        expect(stats['checks'], checks.length, reason: id);
+        expect(
+          stats['failures'],
+          checks.where((c) => c.ok == 0).length,
+          reason: id,
+        );
+        if (checks.isNotEmpty) {
+          final expected =
+              checks.where((c) => c.ok == 1).length / checks.length * 100;
+          expect(stats['uptime'], closeTo(expected, 0.001), reason: id);
+        }
+      }
+    },
+  );
+
   test('/api/history windows contain the outage dip', () async {
     for (final id in HistoryWindows.ids) {
       final response = await get('/api/history/$id');
@@ -149,7 +179,10 @@ void main() {
     final incidents = (body['incidents'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
     expect(incidents.length, 2);
-    expect(incidents.map((i) => i.keys.toSet()), everyElement({'start', 'end'}));
+    expect(
+      incidents.map((i) => i.keys.toSet()),
+      everyElement({'start', 'end'}),
+    );
 
     final older = incidents[0];
     final recent = incidents[1];

@@ -21,6 +21,7 @@ export interface WindowStats {
 export interface SummaryPayload {
   current: StatusPayload;
   windows: Record<HistoryWindow, WindowStats>;
+  windowsExcludingHolidays?: Record<HistoryWindow, WindowStats>;
 }
 
 export interface HistoryPayload {
